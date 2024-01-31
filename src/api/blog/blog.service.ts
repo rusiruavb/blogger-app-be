@@ -36,6 +36,9 @@ export default class BlogService {
             },
           },
           comments: {
+            where: {
+              deletedAt: null,
+            },
             select: {
               id: true,
               comment: true,
