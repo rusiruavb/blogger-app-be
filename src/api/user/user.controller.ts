@@ -7,7 +7,6 @@ router.post('/', (req: Request, res: Response) => {
 });
 
 router.get('/', (req: Request, res: Response) => {
-  throw new Error('Method not implemented');
   res.status(200).json({ data: 'get user called' });
 });
 
