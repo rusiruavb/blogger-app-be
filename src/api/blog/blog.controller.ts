@@ -27,6 +27,15 @@ router.get("/", async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+router.get("/:id", async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const data = await blogService.getAllBlogPostById(req.params.id);
+    res.status(200).json(data);
+  } catch (error: any) {
+    next(error);
+  }
+});
+
 router.put(
   "/",
   verifyToken,

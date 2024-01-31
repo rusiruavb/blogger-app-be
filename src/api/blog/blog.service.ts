@@ -29,7 +29,6 @@ export default class BlogService {
           thumbnail: true,
           user: {
             select: {
-              id: true,
               firstName: true,
               lastName: true,
               email: true,
@@ -47,6 +46,79 @@ export default class BlogService {
                 select: {
                   firstName: true,
                   lastName: true,
+                },
+              },
+            },
+          },
+          likes: {
+            where: {
+              deletedAt: null,
+            },
+            select: {
+              id: true,
+              user: {
+                select: {
+                  firstName: true,
+                  lastName: true,
+                  email: true,
+                },
+              },
+            },
+          },
+        },
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getAllBlogPostById(blogId: string) {
+    try {
+      return await prisma.blog.findUnique({
+        where: {
+          id: blogId,
+          deletedAt: null,
+        },
+        select: {
+          id: true,
+          title: true,
+          subTitle: true,
+          content: true,
+          thumbnail: true,
+          user: {
+            select: {
+              firstName: true,
+              lastName: true,
+              email: true,
+            },
+          },
+          comments: {
+            where: {
+              deletedAt: null,
+            },
+            select: {
+              id: true,
+              comment: true,
+              updatedAt: true,
+              user: {
+                select: {
+                  firstName: true,
+                  lastName: true,
+                },
+              },
+            },
+          },
+          likes: {
+            where: {
+              deletedAt: null,
+            },
+            select: {
+              id: true,
+              user: {
+                select: {
+                  firstName: true,
+                  lastName: true,
+                  email: true,
                 },
               },
             },
