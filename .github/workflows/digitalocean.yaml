@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to DigitalOcean
-        uses: digitalocean/app_action@main
+        uses: digitalocean/app_action@v1.1.6
         with:
           app_name: blogger-api-app
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
