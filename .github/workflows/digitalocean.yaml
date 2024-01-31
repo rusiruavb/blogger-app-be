@@ -29,5 +29,5 @@ jobs:
       - name: Deploy to DigitalOcean
         uses: digitalocean/app_action@v1.1.6
         with:
-          app_name: blogger-api-app
+          app_name: blogger-api-server
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
