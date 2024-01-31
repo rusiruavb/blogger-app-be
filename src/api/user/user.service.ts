@@ -20,8 +20,6 @@ export default class UserService {
         },
       });
 
-      console.log(user);
-
       if (!user?.id) {
         throw new Error("Unauthorized 1");
       }
@@ -101,8 +99,6 @@ export default class UserService {
           },
         });
 
-        console.log(user);
-
         if (!user) {
           throw new Error("User not found");
         }
@@ -152,7 +148,7 @@ export default class UserService {
 
         await tx.blog.updateMany({
           where: {
-            authorId: user.id,
+            userId: user.id,
           },
           data: {
             deletedAt: new Date(),

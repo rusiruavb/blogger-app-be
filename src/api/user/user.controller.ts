@@ -1,7 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
 import UserService from "./user.service";
 import { verifyToken } from "../../middleware/auth.middleware";
-import { errorMiddleware } from "../../middleware/error.middlewarre";
 
 const router = express.Router();
 const userService = new UserService();
