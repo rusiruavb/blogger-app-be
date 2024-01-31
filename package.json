@@ -7,7 +7,7 @@
     "lint": "eslint . --ext .ts",
     "format": "prettier --write \"**/*.{ts,js,json}\"",
     "build": "rm -rf build && npx tsc",
-    "vercel-build": "echo build blogging API",
+    "vercel-build": "rm -rf build && npx tsc",
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts",
     "prisma": "prisma generate --schema=./src/prisma/schema.prisma"
